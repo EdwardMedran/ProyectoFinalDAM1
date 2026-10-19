@@ -9,6 +9,8 @@ class SessionManager(context: Context) {
         context.getSharedPreferences("SIGAPRO_SESSION", Context.MODE_PRIVATE)
 
     companion object {
+
+        private const val KEY_AREA = "area"
         private const val KEY_ID_PERSONA = "idPersona"
         private const val KEY_NOMBRE = "nombre"
         private const val KEY_ROL = "rol"
@@ -24,7 +26,8 @@ class SessionManager(context: Context) {
         rol: String,
         idSede: Int,
         nombreSede: String,
-        direccion: String
+        direccion: String,
+        area: String
     ) {
         preferences.edit()
             .putInt(KEY_ID_PERSONA, idPersona)
@@ -34,6 +37,7 @@ class SessionManager(context: Context) {
             .putString(KEY_NOMBRE_SEDE, nombreSede)
             .putString(KEY_DIRECCION, direccion)
             .putBoolean(KEY_SESION_ACTIVA, true)
+            .putString(KEY_AREA, area)
             .apply()
     }
 
@@ -64,6 +68,12 @@ class SessionManager(context: Context) {
     fun obtenerDireccion(): String {
         return preferences.getString(KEY_DIRECCION, "") ?: ""
     }
+
+
+    fun obtenerArea(): String {
+        return preferences.getString(KEY_AREA, "") ?: ""
+    }
+
 
     fun cerrarSesion() {
         preferences.edit().clear().apply()

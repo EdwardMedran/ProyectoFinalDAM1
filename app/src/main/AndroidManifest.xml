@@ -38,6 +38,11 @@
 
         </activity>
 
+        <!-- Sprint 6 - Historial de asistencias -->
+        <activity
+            android:name=".historial.HistorialActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

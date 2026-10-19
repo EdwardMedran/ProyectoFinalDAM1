@@ -78,7 +78,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         rol = usuarioAutenticado.rol,
                         idSede = sede?.idSede ?: 0,
                         nombreSede = sede?.nombreSede ?: "Sede no asignada",
-                        direccion = sede?.direccion ?: "Dirección no disponible"
+                        direccion = sede?.direccion ?: "Dirección no disponible",
+                        area = usuarioAutenticado.area ?: ""
                     )
 
                     val intent = Intent(
