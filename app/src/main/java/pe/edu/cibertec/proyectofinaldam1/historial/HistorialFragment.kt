@@ -1,5 +1,5 @@
-
 package pe.edu.cibertec.proyectofinaldam1.historial
+import pe.edu.cibertec.proyectofinaldam1.SessionManager
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,10 +49,11 @@ class HistorialFragment : Fragment() {
         recyclerAsistencias?.layoutManager = LinearLayoutManager(requireContext())
         recyclerAsistencias?.adapter = AsistenciaAdapter(emptyList())
 
-        val idPersona = requireActivity().intent.getIntExtra(
-            "idPersona",
-            -1
-        )
+
+        val sessionManager = SessionManager(requireContext())
+        val idPersona = sessionManager.obtenerIdPersona()
+
+
 
         if (idPersona <= 0) {
             mostrarMensaje("No se encontró la sesión del trabajador.")

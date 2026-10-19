@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
 
@@ -48,9 +49,15 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.nav_perfil -> {
+                    mostrarFragment(PerfilFragment())
+                    true
+                }
+
                 else -> false
             }
         }
+
 
         binding.bottomNavigation.setOnItemReselectedListener {
             // Mantener la pestaña actual

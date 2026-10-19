@@ -57,19 +57,16 @@ class MarcacionesFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val idPersona = requireActivity().intent.getIntExtra(
-            "idPersona",
-            0
-        )
 
-        val nombreColaborador = requireActivity().intent
-            .getStringExtra("nombre") ?: "Colaborador"
+        val sessionManager = SessionManager(requireContext())
 
-        val apellidoColaborador = requireActivity().intent
-            .getStringExtra("apellido") ?: ""
+        val idPersona = sessionManager.obtenerIdPersona()
+        val nombreCompleto = sessionManager.obtenerNombre()
+            .ifBlank { "Colaborador" }
+
 
         binding.tvBienvenida.text =
-            "¡Bienvenido, $nombreColaborador $apellidoColaborador!"
+            "¡Bienvenido, $nombreCompleto!"
 
         inicializarFechaEstatica()
 

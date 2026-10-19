@@ -27,7 +27,21 @@ data class LoginResponse(
     val area: String,
 
     @SerializedName("estado")
-    val estado: String
+    val estado: String,
+
+    @SerializedName("sedeAsignada")
+    val sedeAsignada: SedeAsignada?
+)
+
+data class SedeAsignada(
+    @SerializedName("idSede")
+    val idSede: Int,
+
+    @SerializedName("nombre")
+    val nombreSede: String,
+
+    @SerializedName("direccion")
+    val direccion: String
 )
 
 data class ErrorResponse(
