@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
-import pe.edu.cibertec.proyectofinaldam1.MainActivity
 import pe.edu.cibertec.proyectofinaldam1.databinding.ActivityLoginBinding
 import java.io.IOException
 
@@ -69,13 +68,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         ).show()
                         return@launch
                     }
+
+                    val sede = usuarioAutenticado.sedeAsignada
                     val sessionManager = SessionManager(this@LoginActivity)
 
                     sessionManager.guardarSesion(
                         idPersona = usuarioAutenticado.idPersona,
-                        nombre = usuarioAutenticado.nombre,
-                        rol = usuarioAutenticado.rol
+                        nombre = "${usuarioAutenticado.nombre} ${usuarioAutenticado.apellido}",
+                        rol = usuarioAutenticado.rol,
+                        idSede = sede?.idSede ?: 0,
+                        nombreSede = sede?.nombreSede ?: "Sede no asignada",
+                        direccion = sede?.direccion ?: "Dirección no disponible"
                     )
+
                     val intent = Intent(
                         this@LoginActivity,
                         MainActivity::class.java
@@ -85,17 +90,25 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         "idPersona",
                         usuarioAutenticado.idPersona
                     )
+
                     intent.putExtra(
                         "nombre",
                         usuarioAutenticado.nombre
                     )
+
                     intent.putExtra(
                         "apellido",
                         usuarioAutenticado.apellido
                     )
+
                     intent.putExtra(
                         "rol",
                         usuarioAutenticado.rol
+                    )
+
+                    intent.putExtra(
+                        "area",
+                        usuarioAutenticado.area
                     )
 
                     startActivity(intent)
@@ -104,8 +117,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 } else {
 
                     val mensaje = try {
-                        val error = respuesta.errorBody()
-                            ?.string()
+                        val error = respuesta.errorBody()?.string()
 
                         if (!error.isNullOrBlank()) {
                             Gson().fromJson(
@@ -133,8 +145,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             } catch (e: IOException) {
                 Toast.makeText(
                     this@LoginActivity,
-                    "No se pudo conectar con el servidor. " +
-                            "Verifica la URL y la conexión.",
+                    "No se pudo conectar con el servidor. Verifica la URL y la conexión.",
                     Toast.LENGTH_LONG
                 ).show()
 
