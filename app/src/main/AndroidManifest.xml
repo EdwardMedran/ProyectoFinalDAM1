@@ -28,6 +28,11 @@
             android:name=".MainActivity"
             android:exported="true" />
 
+        <!-- Sprint 6 - Historial de asistencias -->
+        <activity
+            android:name=".historial.HistorialActivity"
+            android:exported="false" />
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
