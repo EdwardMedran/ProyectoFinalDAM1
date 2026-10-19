@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="siga_primary">#2563eb</color> <!-- El azul corporativo -->
+    <color name="siga_background">#f8fafc</color> <!-- Fondo gris muy claro -->
+    <color name="siga_text_dark">#0f172a</color> <!-- Texto casi negro -->
+    <color name="siga_text_light">#64748b</color> <!-- Texto secundario -->
+</resources>

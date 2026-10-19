@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ProyectoFInalDAM1" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <!-- Color primario de la app (El azul de la web) -->
+        <item name="colorPrimary">@color/siga_primary</item>
+        <item name="colorPrimaryVariant">@color/siga_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Color de fondo global -->
+        <item name="android:colorBackground">@color/siga_background</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/siga_text_dark</item>
+
+        <!-- Estado de la barra superior del celular (Status bar) -->
+        <item name="android:statusBarColor">@color/siga_background</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="Theme.ProyectoFInalDAM1" parent="Base.Theme.ProyectoFInalDAM1" />
+</resources>
