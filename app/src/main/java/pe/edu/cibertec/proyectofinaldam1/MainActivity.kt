@@ -1,4 +1,4 @@
-package pe.edu.cibertec.proyectofinaldam1
+package pe.edu.cibertec.appgrupo1_t2
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
