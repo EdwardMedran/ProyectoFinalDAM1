@@ -69,7 +69,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         ).show()
                         return@launch
                     }
+                    val sessionManager = SessionManager(this@LoginActivity)
 
+                    sessionManager.guardarSesion(
+                        idPersona = usuarioAutenticado.idPersona,
+                        nombre = usuarioAutenticado.nombre,
+                        rol = usuarioAutenticado.rol
+                    )
                     val intent = Intent(
                         this@LoginActivity,
                         MainActivity::class.java
