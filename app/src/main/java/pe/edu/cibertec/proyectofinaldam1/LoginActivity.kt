@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
-import pe.edu.cibertec.appgrupo1_t2.MainActivity
-import pe.edu.cibertec.appgrupo1_t2.databinding.ActivityLoginBinding
+import pe.edu.cibertec.proyectofinaldam1.MainActivity
+import pe.edu.cibertec.proyectofinaldam1.databinding.ActivityLoginBinding
 import java.io.IOException
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
